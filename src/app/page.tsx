@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -13,9 +14,9 @@ export default function Home() {
         <p className="text-xl md:text-3xl font-light text-zinc-400 mb-12 max-w-2xl">
           A digital design agency.
         </p>
-        <button className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-zinc-200 hover:scale-105 transition-all duration-300">
+        <Link href="/works" className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-zinc-200 hover:scale-105 transition-all duration-300 inline-block">
           View all work
-        </button>
+        </Link>
       </section>
 
       {/* 2. Section (01) - The Reframe / Why Us */}
@@ -157,9 +158,9 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center mt-12 md:mt-0">
-          <button className="px-8 py-4 rounded-full border border-zinc-600 text-lg font-medium hover:bg-white hover:text-black transition-colors duration-300">
+          <Link href="/works" className="px-8 py-4 rounded-full border border-zinc-600 text-lg font-medium hover:bg-white hover:text-black transition-colors duration-300 inline-block">
             View all work
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -172,26 +173,26 @@ export default function Home() {
           <div className="md:w-3/4">
             <div className="flex flex-col border-t border-zinc-800">
               {/* Article 1 */}
-              <a href="#" className="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors duration-300 px-4 -mx-4">
+              <Link href="/insights" className="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors duration-300 px-4 -mx-4">
                 <h3 className="text-2xl md:text-3xl font-medium mb-4 md:mb-0 group-hover:translate-x-2 transition-transform duration-300">
                   AI Made Everything Faster
                 </h3>
                 <span className="text-zinc-500 font-mono text-sm">Feb 24, 2026</span>
-              </a>
+              </Link>
               {/* Article 2 */}
-              <a href="#" className="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors duration-300 px-4 -mx-4">
+              <Link href="/insights" className="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors duration-300 px-4 -mx-4">
                 <h3 className="text-2xl md:text-3xl font-medium mb-4 md:mb-0 group-hover:translate-x-2 transition-transform duration-300">
                   The Return of Maximalism
                 </h3>
                 <span className="text-zinc-500 font-mono text-sm">Jan 12, 2026</span>
-              </a>
+              </Link>
               {/* Article 3 */}
-              <a href="#" className="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors duration-300 px-4 -mx-4">
+              <Link href="/insights" className="group flex flex-col md:flex-row justify-between items-start md:items-center py-8 border-b border-zinc-800 hover:bg-zinc-900/50 transition-colors duration-300 px-4 -mx-4">
                 <h3 className="text-2xl md:text-3xl font-medium mb-4 md:mb-0 group-hover:translate-x-2 transition-transform duration-300">
                   Why Branding is a Business Strategy
                 </h3>
                 <span className="text-zinc-500 font-mono text-sm">Dec 05, 2025</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

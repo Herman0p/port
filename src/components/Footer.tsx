@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
     return (
         <footer className="bg-zinc-950 border-t border-zinc-800 mt-24">
@@ -12,12 +14,12 @@ export default function Footer() {
                             Scale confidently. Stay on-brand.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-zinc-200 transition-colors duration-300">
+                            <Link href="/contact" className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-zinc-200 transition-colors duration-300 flex items-center justify-center">
                                 BOOK A DEMO
-                            </button>
-                            <button className="px-8 py-4 rounded-full border border-zinc-600 text-lg font-medium hover:border-white transition-colors duration-300">
+                            </Link>
+                            <Link href="/contact" className="px-8 py-4 rounded-full border border-zinc-600 text-lg font-medium hover:border-white transition-colors duration-300 flex items-center justify-center">
                                 Get Started Today
-                            </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -49,17 +51,17 @@ export default function Footer() {
                     <div className="flex flex-wrap gap-x-16 gap-y-12">
                         <div className="flex flex-col gap-4">
                             <span className="text-zinc-600 font-mono text-sm tracking-widest mb-1">PLATFORM</span>
-                            <a href="#" className="text-zinc-400 hover:text-white transition-colors">Platform</a>
-                            <a href="#" className="text-zinc-400 hover:text-white transition-colors">Culture</a>
-                            <a href="#" className="text-zinc-400 hover:text-white transition-colors">Work</a>
-                            <a href="#" className="text-zinc-400 hover:text-white transition-colors">Insights</a>
-                            <a href="#" className="text-zinc-400 hover:text-white transition-colors">Contact</a>
+                            <Link href="/" className="text-zinc-400 hover:text-white transition-colors">Platform</Link>
+                            <Link href="/culture" className="text-zinc-400 hover:text-white transition-colors">Culture</Link>
+                            <Link href="/works" className="text-zinc-400 hover:text-white transition-colors">Work</Link>
+                            <Link href="/insights" className="text-zinc-400 hover:text-white transition-colors">Insights</Link>
+                            <Link href="/contact" className="text-zinc-400 hover:text-white transition-colors">Contact</Link>
                         </div>
                         <div className="flex flex-col gap-4">
                             <span className="text-zinc-600 font-mono text-sm tracking-widest mb-1">SOCIALS</span>
-                            <a href="#" className="text-zinc-400 hover:text-white transition-colors">Instagram</a>
-                            <a href="#" className="text-zinc-400 hover:text-white transition-colors">LinkedIn</a>
-                            <a href="#" className="text-zinc-400 hover:text-white transition-colors">Twitter (X)</a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">Instagram</a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">LinkedIn</a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">Twitter (X)</a>
                         </div>
                     </div>
 
