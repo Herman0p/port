@@ -1,26 +1,51 @@
+"use client";
+
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
       {/* 1. Hero Section */}
       <section className="flex flex-col items-start justify-center min-h-[90vh] px-6 md:px-16 lg:px-24 pt-32 pb-20">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter max-w-5xl leading-[1.1] mb-6">
+        <motion.h1
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter max-w-5xl leading-[1.1] mb-6"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           BUILDING BOLD BRANDS.<br />
           <span className="text-zinc-500">Build Bold. Build Fast. Build Once.</span>
-        </h1>
-        <p className="text-xl md:text-3xl font-light text-zinc-400 mb-12 max-w-2xl">
+        </motion.h1>
+        <motion.p
+          className="text-xl md:text-3xl font-light text-zinc-400 mb-12 max-w-2xl"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        >
           A digital design agency.
-        </p>
-        <Link href="/works" className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-zinc-200 hover:scale-105 transition-all duration-300 inline-block">
-          View all work
-        </Link>
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.4 }}
+        >
+          <Link href="/works" className="bg-white text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-zinc-200 hover:scale-105 transition-all duration-300 inline-block">
+            View all work
+          </Link>
+        </motion.div>
       </section>
 
       {/* 2. Section (01) - The Reframe / Why Us */}
-      <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800">
+      <motion.section
+        className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="flex flex-col md:flex-row gap-8 md:gap-24">
           <div className="text-sm tracking-widest text-zinc-500 font-mono uppercase shrink-0 md:w-1/4">
             (01) THE REFRAME
@@ -34,10 +59,16 @@ export default function Home() {
             </h3>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 3. Section (02) - What We Do */}
-      <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800">
+      <motion.section
+        className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="flex flex-col md:flex-row gap-8 md:gap-24 mb-16 md:mb-24">
           <div className="text-sm tracking-widest text-zinc-500 font-mono uppercase shrink-0 md:w-1/4">
             (02) WHAT WE DO
@@ -83,10 +114,16 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 4. Section (03) - Our Work */}
-      <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800">
+      <motion.section
+        className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="flex flex-col md:flex-row gap-8 md:gap-24 mb-16 md:mb-24">
           <div className="text-sm tracking-widest text-zinc-500 font-mono uppercase shrink-0 md:w-1/4">
             (03) OUR WORK
@@ -162,10 +199,16 @@ export default function Home() {
             View all work
           </Link>
         </div>
-      </section>
+      </motion.section>
 
       {/* 5. Section (04) - Insights / Noteworthy */}
-      <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800">
+      <motion.section
+        className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="flex flex-col md:flex-row gap-8 md:gap-24">
           <div className="text-sm tracking-widest text-zinc-500 font-mono uppercase shrink-0 md:w-1/4">
             (04) NOTEWORTHY
@@ -196,7 +239,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 6. Section (05) - Final CTA & Footer */}
       <Footer />
