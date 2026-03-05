@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -58,7 +61,32 @@ export default function Works() {
             image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2670&auto=format&fit=crop",
             aspect: "aspect-[4/5]",
         },
+        // Expanded items for pagination testing
+        {
+            title: "Invisible 2",
+            slug: "invisible-2",
+            image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2664&auto=format&fit=crop",
+            aspect: "aspect-square",
+        },
+        {
+            title: "Pivit 2",
+            slug: "pivit-2",
+            image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop",
+            aspect: "aspect-[4/5]",
+        },
+        {
+            title: "West Operators 2",
+            slug: "west-operators-2",
+            image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2600&auto=format&fit=crop",
+            aspect: "aspect-square",
+        },
     ];
+
+    const [visibleCount, setVisibleCount] = useState(6);
+
+    const handleLoadMore = () => {
+        setVisibleCount((prev) => prev + 3);
+    };
 
     return (
         <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
@@ -75,7 +103,7 @@ export default function Works() {
             {/* 2. Massive Portfolio Grid */}
             <section className="px-6 md:px-16 lg:px-24 pb-32">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
-                    {portfolioItems.map((item, index) => (
+                    {portfolioItems.slice(0, visibleCount).map((item, index) => (
                         <Link href={`/works/${item.slug}`} key={index} className="flex flex-col group cursor-pointer block">
                             <div className={`relative ${item.aspect} w-full overflow-hidden bg-zinc-900 mb-6`}>
                                 <Image
@@ -96,12 +124,17 @@ export default function Works() {
             </section>
 
             {/* 3. Pagination / Load More */}
-            <section className="px-6 md:px-16 lg:px-24 pb-32 flex justify-center">
-                <button className="group flex items-center gap-4 py-4 px-8 border border-zinc-800 rounded-full hover:bg-white hover:text-black hover:border-white transition-all duration-300">
-                    <span className="text-xl font-medium">Next page</span>
-                    <span className="text-2xl transform group-hover:translate-x-2 transition-transform duration-300">→</span>
-                </button>
-            </section>
+            {visibleCount < portfolioItems.length && (
+                <section className="px-6 md:px-16 lg:px-24 pb-32 flex justify-center">
+                    <button
+                        onClick={handleLoadMore}
+                        className="group flex items-center gap-4 py-4 px-8 border border-zinc-800 rounded-full hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+                    >
+                        <span className="text-xl font-medium">Next page</span>
+                        <span className="text-2xl transform group-hover:translate-x-2 transition-transform duration-300">→</span>
+                    </button>
+                </section>
+            )}
 
             {/* 4. Footer */}
             <Footer />
