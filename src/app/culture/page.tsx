@@ -1,6 +1,52 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+
+const AnimatedServiceRow = ({
+    defaultText,
+    hoverText,
+}: {
+    defaultText: string;
+    hoverText: React.ReactNode;
+}) => {
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+        <Link href="/works" className="block">
+            <div
+                className="relative overflow-hidden border-b border-zinc-800 py-8 md:py-12 cursor-pointer group"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
+                {/* Default text */}
+                <motion.div
+                    animate={{ y: isHovered ? "-100%" : "0%" }}
+                    transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+                >
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium font-sans tracking-tighter">
+                        {defaultText}
+                    </h2>
+                </motion.div>
+
+                {/* Hover Text */}
+                <motion.div
+                    className="absolute inset-0 flex items-center"
+                    initial={{ y: "100%" }}
+                    animate={{ y: isHovered ? "0%" : "100%" }}
+                    transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+                >
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium font-sans tracking-tighter w-full">
+                        {hoverText}
+                    </h2>
+                </motion.div>
+            </div>
+        </Link>
+    );
+};
 
 export default function Culture() {
     return (
@@ -63,32 +109,47 @@ export default function Culture() {
                 <div className="text-sm tracking-widest text-zinc-500 font-mono uppercase mb-16 md:mb-24">
                     Capabilities
                 </div>
-                <div className="flex flex-col">
-                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
-                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
-                            Craft Iconic Brands with Powerful Media Strategies<span className="text-zinc-600">*</span>
-                        </h2>
-                    </Link>
-                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
-                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
-                            Create meaningful sticky Experiences That last<span className="text-zinc-600">*</span>
-                        </h2>
-                    </Link>
-                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
-                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
-                            Power Your Growth with Smart Commerce Solutions<span className="text-zinc-600">*</span>
-                        </h2>
-                    </Link>
-                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
-                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
-                            Future-Proof Your Business with Scalable Tech & Data<span className="text-zinc-600">*</span>
-                        </h2>
-                    </Link>
-                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 border-b flex justify-between items-center transition-colors hover:text-zinc-400">
-                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
-                            Unlock the Power of AI to Transform Your Business<span className="text-zinc-600">*</span>
-                        </h2>
-                    </Link>
+                <div className="flex flex-col flex-wrap border-t border-zinc-800">
+                    <AnimatedServiceRow
+                        defaultText="Craft Iconic Brands with Powerful Media Strategies*"
+                        hoverText={
+                            <>
+                                ILLUMINATING BRANDS WITH <span className="font-serif italic font-light text-zinc-400 mx-2">STRATEGY AND DESIGN</span>
+                            </>
+                        }
+                    />
+                    <AnimatedServiceRow
+                        defaultText="Create meaningful sticky Experiences That last*"
+                        hoverText={
+                            <>
+                                <span className="font-serif italic font-light text-zinc-400 mr-2">STRATEGIES</span> THAT MAKE YOUR BRAND SHINE <span className="font-serif italic font-light text-zinc-400 ml-2">BRIGHTER</span>
+                            </>
+                        }
+                    />
+                    <AnimatedServiceRow
+                        defaultText="Power Your Growth with Smart Commerce Solutions*"
+                        hoverText={
+                            <>
+                                <span className="font-serif italic font-light text-zinc-400 mr-2">EVOLVING</span> ECOMMERCE TO <span className="font-serif italic font-light text-zinc-400 mx-2">POWER</span> SALES
+                            </>
+                        }
+                    />
+                    <AnimatedServiceRow
+                        defaultText="Future-Proof Your Business with Scalable Tech & Data*"
+                        hoverText={
+                            <>
+                                <span className="font-serif italic font-light text-zinc-400 mr-2">INTELLIGENT</span> SYSTEMS BUILT TO <span className="font-serif italic font-light text-zinc-400 mx-2">SCALE</span> WITH YOU
+                            </>
+                        }
+                    />
+                    <AnimatedServiceRow
+                        defaultText="Unlock the Power of AI to Transform Your Business*"
+                        hoverText={
+                            <>
+                                AI <span className="font-serif italic font-light text-zinc-400 mx-2">INNOVATION</span> TAILORED TO YOUR <span className="font-serif italic font-light text-zinc-400 ml-2">GOALS</span>
+                            </>
+                        }
+                    />
                 </div>
             </section>
 
