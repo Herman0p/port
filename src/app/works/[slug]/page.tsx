@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 
-// Dummy data structure
+// Dummy data structure mapping specifically matched to "invisible"
 const projectsData: Record<string, any> = {
     "invisible": {
         title: "Invisible",
         client: "Invisible Tech",
         services: "Digital Experience, Product Design",
-        year: "2026",
+        year: "2025",
         liveSite: "https://invisible.co",
         heroImage: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2664&auto=format&fit=crop",
         overview: "Invisible represents a paradigm shift in how users interact with digital workspaces. The challenge was to create an interface that felt completely non-intrusive yet incredibly powerful when summoned. We stripped away every unnecessary element, leaving only what matters. The result is a brutalist, high-performance web experience that prioritizes speed and clarity above all else.",
@@ -18,6 +18,7 @@ const projectsData: Record<string, any> = {
             "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=2670&auto=format&fit=crop",
         ]
     },
+    // Adding Pivit just in case they click it
     "pivit": {
         title: "Pivit",
         client: "Pivit Financial",
@@ -30,20 +31,6 @@ const projectsData: Record<string, any> = {
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2676&auto=format&fit=crop",
-        ]
-    },
-    "west-operators": {
-        title: "West Operators",
-        client: "West Operators Group",
-        services: "Brand Identity, Web Design",
-        year: "2026",
-        liveSite: "https://westoperators.com",
-        heroImage: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2600&auto=format&fit=crop",
-        overview: "A sharp, uncompromising brand identity for an industrial logistics group. West Operators needed to look established but cutting-edge. We employed a brutalist design system utilizing harsh angles, industrial monospaced fonts, and a stark black-and-white visual language.",
-        gallery: [
-            "https://images.unsplash.com/photo-1586528116311-ad8ed7c81a29?q=80&w=2670&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2670&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1587293852726-6947b59fa71f?q=80&w=2670&auto=format&fit=crop",
         ]
     }
 };
@@ -63,17 +50,18 @@ const fallbackProject = {
     ]
 };
 
-export default function ProjectPage({
-    params,
+// Extremely strict typing rule for Next.js 13+ App Router
+export default function ProjectDetail({
+    params
 }: {
-    params: { slug: string };
+    params: { slug: string }
 }) {
     const { slug } = params;
 
     // Dynamic loading with a fallback if slug isn't strictly in our dummy data
     const project = projectsData[slug] || {
         ...fallbackProject,
-        title: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        title: slug ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') : "Unknown"
     };
 
     return (
@@ -117,7 +105,7 @@ export default function ProjectPage({
 
             {/* 2. Hero Image */}
             <section className="w-full">
-                <div className="relative w-full h-[70vh] bg-zinc-900 overflow-hidden">
+                <div className="relative w-full h-[80vh] bg-zinc-900 overflow-hidden">
                     <Image
                         src={project.heroImage}
                         alt={`${project.title} Hero Image`}
