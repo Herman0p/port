@@ -170,14 +170,14 @@ export default function Culture() {
                     <div className="group">
                         <div className="relative aspect-[3/4] w-full overflow-hidden bg-zinc-900 mb-6 mt-0 filter grayscale transition-all duration-500 group-hover:grayscale-0">
                             <Image
-                                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop"
-                                alt="Jacqueline Schmidt"
+                                src="/hermansyah.jpg"
+                                alt="Hermansyah Adika Putra"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 33vw"
-                                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                                className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                             />
                         </div>
-                        <h3 className="text-2xl font-bold mb-2">Jacqueline Schmidt<span className="text-zinc-600 font-light ml-1">*</span></h3>
+                        <h3 className="text-2xl font-bold mb-2">Hermansyah Adika Putra<span className="text-zinc-600 font-light ml-1">*</span></h3>
                         <p className="text-zinc-400">CEO & Founder</p>
                     </div>
                     {/* Team Member 2 */}
