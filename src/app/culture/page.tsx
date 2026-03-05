@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export default function Culture() {
@@ -63,31 +64,31 @@ export default function Culture() {
                     Capabilities
                 </div>
                 <div className="flex flex-col">
-                    <a href="#" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
+                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
                         <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
                             Craft Iconic Brands with Powerful Media Strategies<span className="text-zinc-600">*</span>
                         </h2>
-                    </a>
-                    <a href="#" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
+                    </Link>
+                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
                         <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
                             Create meaningful sticky Experiences That last<span className="text-zinc-600">*</span>
                         </h2>
-                    </a>
-                    <a href="#" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
+                    </Link>
+                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
                         <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
                             Power Your Growth with Smart Commerce Solutions<span className="text-zinc-600">*</span>
                         </h2>
-                    </a>
-                    <a href="#" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
+                    </Link>
+                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 flex justify-between items-center transition-colors hover:text-zinc-400">
                         <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
                             Future-Proof Your Business with Scalable Tech & Data<span className="text-zinc-600">*</span>
                         </h2>
-                    </a>
-                    <a href="#" className="group py-8 md:py-12 border-t border-zinc-800 border-b flex justify-between items-center transition-colors hover:text-zinc-400">
+                    </Link>
+                    <Link href="/works" className="group py-8 md:py-12 border-t border-zinc-800 border-b flex justify-between items-center transition-colors hover:text-zinc-400">
                         <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tighter transition-transform group-hover:translate-x-4">
                             Unlock the Power of AI to Transform Your Business<span className="text-zinc-600">*</span>
                         </h2>
-                    </a>
+                    </Link>
                 </div>
             </section>
 
