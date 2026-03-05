@@ -17,15 +17,15 @@ const AnimatedServiceRow = ({
 
     return (
         <div
-            className="relative overflow-hidden border-b border-zinc-800 py-8 md:py-12 cursor-default flex items-center"
+            className="relative overflow-hidden border-b border-white/20 py-8 md:py-12 cursor-default"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Default text */}
             <motion.div
-                animate={{ y: isHovered ? "-120%" : "0%" }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full"
+                className="w-full block"
+                animate={{ y: isHovered ? "-100%" : "0%", opacity: isHovered ? 0 : 1 }}
+                transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
             >
                 <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium font-sans uppercase tracking-tight">
                     {defaultText}
@@ -34,9 +34,9 @@ const AnimatedServiceRow = ({
 
             {/* Hover Text */}
             <motion.div
-                initial={{ y: "120%" }}
-                animate={{ y: isHovered ? "0%" : "120%" }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: isHovered ? "0%" : "100%", opacity: isHovered ? 1 : 0 }}
+                transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
                 className="absolute inset-0 flex items-center w-full"
             >
                 <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium font-sans uppercase tracking-tight w-full">
