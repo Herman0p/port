@@ -3,6 +3,7 @@ import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Footer from '@/components/Footer';
 
 const teamMembers = [
     {
@@ -134,6 +135,11 @@ export default function TeamMemberPage() {
                     "{member.quote}"
                 </h3>
             </motion.div>
+
+            {/* Global Footer */}
+            <div className="mt-32 md:mt-48 w-full border-t border-zinc-900">
+                <Footer />
+            </div>
         </main>
     );
 }
