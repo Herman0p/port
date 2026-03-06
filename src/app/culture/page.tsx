@@ -220,7 +220,7 @@ export default function Culture() {
                                     alt={member.name}
                                     fill
                                     sizes="(max-width: 768px) 100vw, 33vw"
-                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-700"
                                 />
                             </Link>
                             <h3 className="text-2xl font-bold mb-2 mt-6">
