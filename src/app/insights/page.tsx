@@ -1,5 +1,8 @@
+"use client";
+
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Insights() {
     // Generate simple slugs from the titles
@@ -53,21 +56,34 @@ export default function Insights() {
         <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
             {/* 1. Insights Hero Section */}
             <section className="px-6 md:px-16 lg:px-24 pt-48 pb-20 md:pb-32">
-                <div className="flex gap-4 text-sm tracking-widest text-zinc-500 font-mono uppercase mb-16">
-                    <span>Creative Currents</span>
-                    <span>/</span>
-                    <span>Insights</span>
-                </div>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] max-w-5xl">
-                    Thinking out loud.
-                </h1>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+                >
+                    <div className="flex gap-4 text-sm tracking-widest text-zinc-500 font-mono uppercase mb-16">
+                        <span>Creative Currents</span>
+                        <span>/</span>
+                        <span>Insights</span>
+                    </div>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] max-w-5xl">
+                        Thinking out loud.
+                    </h1>
+                </motion.div>
             </section>
 
             {/* 2. Article List / Feed */}
             <section className="px-6 md:px-16 lg:px-24 pb-32">
                 <div className="flex flex-col border-t border-zinc-800">
                     {articles.map((article, index) => (
-                        <article key={index} className="group">
+                        <motion.article
+                            key={index}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-50px' }}
+                            transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.1 }}
+                            className="group"
+                        >
                             <Link
                                 href={`/insights/${article.slug}`}
                                 className="flex flex-col md:flex-row justify-between items-start md:items-center py-10 border-b border-zinc-800 transition-colors duration-300 hover:bg-zinc-900/40 -mx-6 md:-mx-16 lg:-mx-24 px-6 md:px-16 lg:px-24"
@@ -84,7 +100,7 @@ export default function Insights() {
                                     <span className="text-2xl opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 text-zinc-500 hidden md:inline-block">&rarr;</span>
                                 </div>
                             </Link>
-                        </article>
+                        </motion.article>
                     ))}
                 </div>
             </section>
