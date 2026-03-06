@@ -1,8 +1,7 @@
-'use client';
 import { useParams } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Footer from '@/components/Footer';
 
 const teamMembers = [
@@ -58,6 +57,12 @@ const teamMembers = [
 export default function TeamMemberPage() {
     const params = useParams();
     const [mounted, setMounted] = useState(false);
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start end", "end start"]
+    });
+    const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
     useEffect(() => {
         setMounted(true);
@@ -81,16 +86,23 @@ export default function TeamMemberPage() {
     }
 
     return (
-        <main className="min-h-screen bg-black text-white pt-32 pb-24">
+        <main ref={containerRef} className="min-h-screen bg-black text-white pt-32 pb-24">
             <div className="max-w-[1800px] mx-auto px-4 md:px-12 lg:px-24">
                 {/* Header Section */}
-                <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }} className="mb-16 md:mb-24">
+                <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} className="mb-16 md:mb-24">
                     <Link href="/culture" className="text-zinc-500 text-sm uppercase tracking-widest hover:text-white transition-colors mb-8 inline-block">
                         [ Back to Culture ]
                     </Link>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium uppercase tracking-tighter mb-6">
-                        {member.name}
-                    </h1>
+                    <div className="overflow-hidden mb-6">
+                        <motion.h1
+                            initial={{ y: "100%" }}
+                            animate={{ y: "0%" }}
+                            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                            className="text-5xl md:text-7xl lg:text-8xl font-medium uppercase tracking-tighter"
+                        >
+                            {member.name}
+                        </motion.h1>
+                    </div>
                     <p className="text-xl md:text-2xl text-zinc-400 border-b border-white/20 pb-12">
                         {member.role}
                     </p>
@@ -98,39 +110,66 @@ export default function TeamMemberPage() {
 
                 {/* Editorial Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
-                    {/* Left: Massive Portrait */}
-                    <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: [0.33, 1, 0.68, 1] }} className="lg:col-span-5 relative aspect-[3/4] w-full overflow-hidden">
-                        <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
-                    </motion.div>
+                    {/* Left: Massive Portrait with Parallax */}
+                    <div className="lg:col-span-5 relative aspect-[3/4] w-full overflow-hidden">
+                        <motion.img
+                            style={{ y: imageY, scale: 1.1 }}
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                        />
+                    </div>
 
                     {/* Right: Biography & Stats */}
-                    <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3, ease: [0.33, 1, 0.68, 1] }} className="lg:col-span-7 flex flex-col">
-                        <h2 className="text-2xl md:text-4xl font-medium uppercase leading-snug mb-12 text-zinc-200">
-                            {member.headline}
-                        </h2>
+                    <div className="lg:col-span-7 flex flex-col">
+                        <div className="overflow-hidden mb-12">
+                            <motion.h2
+                                initial={{ y: "100%" }}
+                                whileInView={{ y: "0%" }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                                className="text-2xl md:text-4xl font-medium uppercase leading-snug text-zinc-200"
+                            >
+                                {member.headline}
+                            </motion.h2>
+                        </div>
 
                         <div className="space-y-8 mb-16">
                             {member.bio.map((paragraph, idx) => (
-                                <p key={idx} className="text-zinc-400 text-lg md:text-xl leading-relaxed">
+                                <motion.p
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                                    className="text-zinc-400 text-lg md:text-xl leading-relaxed"
+                                >
                                     {paragraph}
-                                </p>
+                                </motion.p>
                             ))}
                         </div>
 
                         {/* Stats List */}
                         <div className="flex flex-col w-full border-t border-white/20">
                             {member.stats.map((stat, idx) => (
-                                <div key={idx} className="border-b border-white/20 py-4 text-zinc-300 uppercase tracking-wide text-sm md:text-base">
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    transition={{ duration: 0.8, delay: 0.4 + (idx * 0.1), ease: [0.22, 1, 0.36, 1] }}
+                                    className="border-b border-white/20 py-4 text-zinc-300 uppercase tracking-wide text-sm md:text-base"
+                                >
                                     ✦ {stat}
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
 
             {/* Massive Quote Section */}
-            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut" }} className="w-full mt-32 md:mt-48 px-4 md:px-12 lg:px-24">
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="w-full mt-32 md:mt-48 px-4 md:px-12 lg:px-24">
                 <h3 className="text-4xl md:text-6xl lg:text-8xl font-serif italic font-light text-center leading-tight tracking-tight text-zinc-200">
                     "{member.quote}"
                 </h3>
