@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 // Dummy data structure mapping specifically matched to "invisible"
 const projectsData: Record<string, any> = {
@@ -68,12 +71,22 @@ export default function ProjectDetail({
         <div className="bg-black text-white min-h-screen font-sans selection:bg-white selection:text-black">
             {/* 1. Project Header */}
             <section className="px-6 md:px-16 lg:px-24 pt-40 pb-24">
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter uppercase mb-20 leading-none">
+                <motion.h1
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+                    className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter uppercase mb-20 leading-none"
+                >
                     {project.title}
-                </h1>
+                </motion.h1>
 
                 {/* Metadata Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 border-t border-zinc-800 pt-12">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.15 }}
+                    className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 border-t border-zinc-800 pt-12"
+                >
                     <div className="flex flex-col gap-2">
                         <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest">Client</span>
                         <span className="text-lg md:text-xl font-medium text-white">{project.client}</span>
@@ -100,11 +113,16 @@ export default function ProjectDetail({
                             </svg>
                         </a>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* 2. Hero Image */}
-            <section className="w-full">
+            <motion.section
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.3 }}
+                className="w-full"
+            >
                 <div className="relative w-full h-[80vh] bg-zinc-900 overflow-hidden">
                     <Image
                         src={project.heroImage}
@@ -115,10 +133,16 @@ export default function ProjectDetail({
                         priority
                     />
                 </div>
-            </section>
+            </motion.section>
 
             {/* 3. Project Overview / The Challenge */}
-            <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32">
+            <motion.section
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="px-6 md:px-16 lg:px-24 py-24 md:py-32"
+            >
                 <div className="flex flex-col md:flex-row gap-12 md:gap-24 relative">
                     <div className="md:w-1/4">
                         <div className="md:sticky md:top-32 text-sm tracking-widest text-zinc-500 font-mono uppercase">
@@ -131,12 +155,18 @@ export default function ProjectDetail({
                         </p>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* 4. Showcase Gallery */}
             <section className="px-6 md:px-16 lg:px-24 pb-24 md:pb-32 flex flex-col gap-8 md:gap-16">
                 {/* Full Width Image */}
-                <div className="relative w-full aspect-[16/9] bg-zinc-900 overflow-hidden">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                    className="relative w-full aspect-[16/9] bg-zinc-900 overflow-hidden"
+                >
                     <Image
                         src={project.gallery[0]}
                         alt={`${project.title} Showcase 1`}
@@ -144,10 +174,16 @@ export default function ProjectDetail({
                         sizes="100vw"
                         className="object-cover"
                     />
-                </div>
+                </motion.div>
 
                 {/* 2-Column Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16"
+                >
                     <div className="relative w-full aspect-[4/5] md:aspect-[3/4] bg-zinc-900 overflow-hidden">
                         <Image
                             src={project.gallery[1]}
@@ -166,11 +202,17 @@ export default function ProjectDetail({
                             className="object-cover"
                         />
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* 5. Next Project Navigation */}
-            <section className="border-t border-zinc-800">
+            <motion.section
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="border-t border-zinc-800"
+            >
                 <Link
                     href="/works"
                     className="group block w-full px-6 md:px-16 lg:px-24 py-24 md:py-32 hover:bg-white hover:text-black transition-colors duration-500"
@@ -187,7 +229,7 @@ export default function ProjectDetail({
                         </div>
                     </div>
                 </Link>
-            </section>
+            </motion.section>
 
             {/* Global Footer */}
             <Footer />

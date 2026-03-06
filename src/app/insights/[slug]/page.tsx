@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 // Dummy data structure matching the Insights page
 const blogData: Record<string, any> = {
@@ -67,7 +70,12 @@ export default function InsightDetail({
         <div className="bg-black text-white min-h-screen font-sans selection:bg-white selection:text-black">
             {/* 1. Header Section */}
             <section className="px-6 md:px-16 lg:px-24 pt-48 pb-12 md:max-w-6xl mx-auto">
-                <div className="flex items-center gap-4 mb-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+                    className="flex items-center gap-4 mb-8"
+                >
                     <span className="text-zinc-500 font-mono text-sm tracking-widest uppercase">
                         {article.date}
                     </span>
@@ -79,19 +87,34 @@ export default function InsightDetail({
                             </span>
                         ))}
                     </div>
-                </div>
+                </motion.div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-8">
+                <motion.h1
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.1 }}
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-8"
+                >
                     {article.title}
-                </h1>
+                </motion.h1>
 
-                <div className="text-xl md:text-2xl font-light text-zinc-400">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.2 }}
+                    className="text-xl md:text-2xl font-light text-zinc-400"
+                >
                     By {article.author}
-                </div>
+                </motion.div>
             </section>
 
             {/* 2. Hero Image */}
-            <section className="px-6 md:px-16 lg:px-24 w-full">
+            <motion.section
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.3 }}
+                className="px-6 md:px-16 lg:px-24 w-full"
+            >
                 <div className="relative w-full h-[50vh] md:h-[70vh] bg-zinc-900 overflow-hidden">
                     <Image
                         src={article.heroImage}
@@ -102,14 +125,20 @@ export default function InsightDetail({
                         priority
                     />
                 </div>
-            </section>
+            </motion.section>
 
             {/* 3. Article Body & Sidebar */}
             <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 relative">
 
                     {/* Left Column (Sticky TOC) */}
-                    <div className="lg:col-span-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-50px' }}
+                        transition={{ duration: 0.6, ease: 'easeOut' }}
+                        className="lg:col-span-4"
+                    >
                         <div className="lg:sticky lg:top-32 bg-zinc-950 p-8 border border-zinc-800">
                             <h3 className="text-sm font-mono tracking-widest text-zinc-500 uppercase mb-6">
                                 On this page
@@ -129,10 +158,16 @@ export default function InsightDetail({
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right Column (Content) */}
-                    <div className="lg:col-span-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-50px' }}
+                        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+                        className="lg:col-span-8"
+                    >
                         {/* We use a custom prose-like CSS implementation since typography plugin configuration was skipped */}
                         <div
                             className="text-lg md:text-xl lg:text-2xl font-light leading-relaxed text-zinc-300 space-y-8 prose-custom"
@@ -150,7 +185,7 @@ export default function InsightDetail({
                                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-lg font-medium hover:text-zinc-400 transition-colors">Facebook</a>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                 </div>
             </section>
