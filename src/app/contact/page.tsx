@@ -1,6 +1,7 @@
 "use client";
 
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 export default function Contact() {
     return (
@@ -12,16 +13,26 @@ export default function Contact() {
                     <span>/</span>
                     <span>Contact Us</span>
                 </div>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] max-w-5xl">
+                <motion.h1
+                    initial={{ opacity: 0, y: 60 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] max-w-5xl"
+                >
                     Big ideas. Bright minds. Reach out and let's shine together.
-                </h1>
+                </motion.h1>
             </section>
 
             {/* 2. The Contact Form */}
             <section className="px-6 md:px-16 lg:px-24 pb-32">
                 <form className="max-w-4xl flex flex-col gap-12">
                     {/* Row 1: Name & Email */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.2 }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-12"
+                    >
                         <div className="flex flex-col group">
                             <label htmlFor="name" className="text-zinc-500 font-mono text-sm tracking-widest uppercase mb-4 group-focus-within:text-white transition-colors">
                                 Your Name <span className="text-red-500">*</span>
@@ -48,10 +59,15 @@ export default function Contact() {
                                 placeholder="john@example.com"
                             />
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Row 2: Company & Website */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.3 }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-12"
+                    >
                         <div className="flex flex-col group">
                             <label htmlFor="company" className="text-zinc-500 font-mono text-sm tracking-widest uppercase mb-4 group-focus-within:text-white transition-colors">
                                 Your Company Name <span className="text-red-500">*</span>
@@ -77,10 +93,15 @@ export default function Contact() {
                                 placeholder="https://example.com"
                             />
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Row 3: Role & Department Dropdowns */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.4 }}
+                        className="grid grid-cols-1 md:grid-cols-2 gap-12"
+                    >
                         <div className="flex flex-col group">
                             <label htmlFor="role" className="text-zinc-500 font-mono text-sm tracking-widest uppercase mb-4 group-focus-within:text-white transition-colors">
                                 Select Your Role <span className="text-red-500">*</span>
@@ -118,10 +139,15 @@ export default function Contact() {
                                 <option value="Other" className="bg-zinc-900">Other</option>
                             </select>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Row 4: Services Checkboxes */}
-                    <div className="flex flex-col mt-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.5 }}
+                        className="flex flex-col mt-4"
+                    >
                         <label className="text-zinc-500 font-mono text-sm tracking-widest uppercase mb-8">
                             What Services do you need?
                         </label>
@@ -136,10 +162,15 @@ export default function Contact() {
                                 </label>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Row 5: Budget Dropdown */}
-                    <div className="flex flex-col group mt-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.6 }}
+                        className="flex flex-col group mt-4"
+                    >
                         <label htmlFor="budget" className="text-zinc-500 font-mono text-sm tracking-widest uppercase mb-4 group-focus-within:text-white transition-colors">
                             Select Your Budget ($) <span className="text-red-500">*</span>
                         </label>
@@ -154,10 +185,15 @@ export default function Contact() {
                             <option value="10k-20k" className="bg-zinc-900">10k - 20k</option>
                             <option value="20k+" className="bg-zinc-900">20k+</option>
                         </select>
-                    </div>
+                    </motion.div>
 
                     {/* Row 6: Message Textarea */}
-                    <div className="flex flex-col group mt-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.7 }}
+                        className="flex flex-col group mt-4"
+                    >
                         <label htmlFor="message" className="text-zinc-500 font-mono text-sm tracking-widest uppercase mb-4 group-focus-within:text-white transition-colors">
                             Message <span className="text-red-500">*</span>
                         </label>
@@ -169,17 +205,22 @@ export default function Contact() {
                             className="bg-transparent border-b border-zinc-800 pb-4 text-xl focus:outline-none focus:border-white transition-colors rounded-none resize-none"
                             placeholder="Tell us about your project..."
                         />
-                    </div>
+                    </motion.div>
 
                     {/* Row 7: Submit Button */}
-                    <div className="mt-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.8 }}
+                        className="mt-8"
+                    >
                         <button
                             type="submit"
                             className="group flex flex-col items-center justify-center w-full md:w-auto px-12 py-6 bg-white text-black rounded-full hover:bg-zinc-200 transition-all duration-300 hover:scale-[1.02]"
                         >
                             <span className="text-xl font-bold tracking-tight">Send Message</span>
                         </button>
-                    </div>
+                    </motion.div>
                 </form>
             </section>
 
