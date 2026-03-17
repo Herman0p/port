@@ -297,25 +297,16 @@ export default function Culture() {
             </section>
 
             {/* 6. Backers & Clients Marquee/Grid */}
-            <section className="py-24 md:py-32 border-t border-zinc-800 overflow-hidden">
-                <div className="px-6 md:px-16 lg:px-24 mb-16 md:mb-24">
-                    <h2 className="text-2xl md:text-3xl font-light text-zinc-500 text-center">
-                        Backed by Infinity. Select clients:
-                    </h2>
-                </div>
-                <div className="flex whitespace-nowrap items-center py-12">
-                    <motion.div
-                        className="flex whitespace-nowrap items-center"
-                        animate={{ x: ["0%", "-50%"] }}
-                        transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
-                    >
-                        <h2 className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-tighter text-zinc-300 pr-8">
-                            NIKE ✦ VERCEL ✦ STRIPE ✦ GOOGLE ✦ FRAMER ✦ FIGMA ✦
-                        </h2>
-                        <h2 className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-tighter text-zinc-300 pr-8">
-                            NIKE ✦ VERCEL ✦ STRIPE ✦ GOOGLE ✦ FRAMER ✦ FIGMA ✦
-                        </h2>
-                    </motion.div>
+            <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800 overflow-hidden">
+                <h2 className="text-2xl md:text-3xl font-light text-zinc-500 mb-16 text-center">
+                    Backed by Infinity. Select clients:
+                </h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 opacity-60 hover:opacity-100 transition-opacity duration-500">
+                    {["NIKE", "VERCEL", "STRIPE", "GOOGLE", "FRAMER", "FIGMA"].map((client, index) => (
+                        <div key={index} className="aspect-video bg-zinc-900 border border-zinc-800 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+                            <span className="text-zinc-500 font-bold tracking-widest text-lg md:text-xl">{client}</span>
+                        </div>
+                    ))}
                 </div>
             </section>
 
