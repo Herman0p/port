@@ -26,7 +26,7 @@ export default function Footer() {
                                 INSTAGRAM
                             </a>
                             <a
-                                href="https://linkedin.com"
+                                href="https://www.linkedin.com/in/hermansyahputra/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-white transition-colors"
@@ -44,8 +44,8 @@ export default function Footer() {
                         <Link href="/culture" className="hover:text-white transition-colors">
                             CULTURE
                         </Link>
-                        <Link href="/works" className="hover:text-white transition-colors">
-                            WORKS
+                        <Link href="/work" className="hover:text-white transition-colors">
+                            WORK
                         </Link>
                     </div>
 

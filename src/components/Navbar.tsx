@@ -10,7 +10,7 @@ export default function Navbar() {
 
     const navLinks = [
         { name: "Culture", href: "/culture" },
-        { name: "Works", href: "/works" },
+        { name: "Work", href: "/work" },
         { name: "Insights", href: "/insights" },
     ];
 

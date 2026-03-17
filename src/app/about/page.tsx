@@ -50,13 +50,13 @@ export default function About() {
                     {/* Right: Editorial Paragraphs */}
                     <div className="flex flex-col gap-8 md:pt-12">
                         <p className="text-zinc-400 text-lg md:text-xl leading-relaxed">
-                            UNCLEMAN is a premium digital agency built on a foundation of brutalist aesthetics and high-performance engineering. We believe in design that demands attention, cutting through the noise of an overcrowded digital landscape.
+                            I am Hermansyah Putra, a passionate Frontend Developer and UI Designer based in Jakarta, Indonesia. With a foundation in brutalist aesthetics and high-performance engineering, I believe in design that demands attention, cutting through the noise of an overcrowded digital landscape.
                         </p>
                         <p className="text-zinc-400 text-lg md:text-xl leading-relaxed">
-                            Our team functions as a centralized creative cortex—a unified brain trust where strategy, design, and technology converge. We do not just build websites; we engineer comprehensive brand ecosystems that are designed to evolve and scale.
+                            My approach functions as a centralized creative cortex—a unified brain trust where strategy, design, and technology converge. I specialize in React, Next.js, and creating seamless user experiences. I don't just build websites; I engineer comprehensive brand ecosystems that are designed to evolve and scale.
                         </p>
                         <p className="text-zinc-400 text-lg md:text-xl leading-relaxed">
-                            We exist to elevate brands that refuse to blend in. By stripping away the unnecessary and focusing heavily on performance, smooth animations, and striking typography, we craft digital experiences that leave a lasting imprint.
+                            I exist to elevate brands that refuse to blend in. By stripping away the unnecessary and focusing heavily on performance, smooth animations, and striking typography, I craft digital experiences that leave a lasting imprint. Strategies that make your brand shine brighter.
                         </p>
 
                         {/* 3. Stats List */}

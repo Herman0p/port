@@ -25,7 +25,7 @@ const itemVariants = {
 };
 
 export default function Home() {
-  const heroWords = "BUILDING BOLD BRANDS.".split(" ");
+  const heroWords = "HERMANSYAH PUTRA.".split(" ");
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
@@ -46,15 +46,26 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="overflow-hidden mb-16 pb-2">
+        <div className="overflow-hidden mb-6 pb-2">
           <motion.h2
-            className="text-2xl md:text-4xl lg:text-5xl font-light text-zinc-400 tracking-tight"
+            className="text-2xl md:text-4xl lg:text-5xl font-light text-zinc-300 tracking-tight"
             initial={{ y: "120%" }}
             animate={{ y: "0%" }}
             transition={{ duration: 0.5, delay: 0.1, ease: appyEase }}
           >
-            Build Bold. Build Fast. Build Once.
+            Frontend Developer & UI Designer
           </motion.h2>
+        </div>
+
+        <div className="overflow-hidden mb-16 pb-2">
+          <motion.h3
+            className="text-xl md:text-2xl lg:text-3xl font-light text-zinc-500 tracking-tight italic"
+            initial={{ y: "120%" }}
+            animate={{ y: "0%" }}
+            transition={{ duration: 0.5, delay: 0.12, ease: appyEase }}
+          >
+            Illuminating brands with strategy and design
+          </motion.h3>
         </div>
 
         <div className="overflow-hidden pb-4">
@@ -63,7 +74,7 @@ export default function Home() {
             animate={{ y: "0%" }}
             transition={{ duration: 0.5, delay: 0.15, ease: appyEase }}
           >
-            <Link href="/works" className="bg-white text-black px-10 py-5 rounded-full text-lg md:text-xl font-semibold hover:bg-zinc-200 hover:scale-105 transition-all duration-300 inline-flex items-center gap-4">
+            <Link href="/work" className="bg-white text-black px-10 py-5 rounded-full text-lg md:text-xl font-semibold hover:bg-zinc-200 hover:scale-105 transition-all duration-300 inline-flex items-center gap-4">
               View all work
               <span className="text-2xl leading-none">&rarr;</span>
             </Link>
@@ -135,25 +146,29 @@ export default function Home() {
           <div className="group border-t border-zinc-800 pt-8 overflow-hidden pr-2">
             <motion.div variants={itemVariants}>
               <div className="text-zinc-600 font-mono mb-8 text-sm">(001)</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-zinc-300 transition-colors duration-300">Be Memorable by design</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-zinc-300 transition-colors duration-300">Evolving eCommerce to Power Sales</h3>
+              <p className="text-zinc-400 text-lg">Optimizing shopping experiences for conversion and scalable growth.</p>
             </motion.div>
           </div>
           <div className="group border-t border-zinc-800 pt-8 overflow-hidden pr-2">
             <motion.div variants={itemVariants}>
               <div className="text-zinc-600 font-mono mb-8 text-sm">(002)</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-zinc-300 transition-colors duration-300">Create Sticky Experiences</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-zinc-300 transition-colors duration-300">intelligent systems built to scale with you</h3>
+              <p className="text-zinc-400 text-lg">Robust architectures tailored in Next.js, React, and robust APIs.</p>
             </motion.div>
           </div>
           <div className="group border-t border-zinc-800 pt-8 overflow-hidden pr-2">
             <motion.div variants={itemVariants}>
               <div className="text-zinc-600 font-mono mb-8 text-sm">(003)</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-zinc-300 transition-colors duration-300">Fuel commerce growth</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-zinc-300 transition-colors duration-300">AI innovation tailored to your goals</h3>
+              <p className="text-zinc-400 text-lg">Cutting-edge integrations to keep your brand ahead of the curve.</p>
             </motion.div>
           </div>
           <div className="group border-t border-zinc-800 pt-8 overflow-hidden pr-2">
             <motion.div variants={itemVariants}>
               <div className="text-zinc-600 font-mono mb-8 text-sm">(004)</div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-zinc-300 transition-colors duration-300">Unlock your future with AI</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white group-hover:text-zinc-300 transition-colors duration-300">Intuitive UI/UX Excellence</h3>
+              <p className="text-zinc-400 text-lg">Seamless experiences crafted with precision for maximum user retention.</p>
             </motion.div>
           </div>
         </motion.div>
@@ -191,7 +206,7 @@ export default function Home() {
         >
           <div className="overflow-hidden py-2 px-1">
             <motion.div variants={itemVariants}>
-              <Link href="/works/west-operators" className="group block mb-12 md:mb-0">
+              <Link href="/work/west-operators" className="group block mb-12 md:mb-0">
                 <div className="relative aspect-[4/5] md:aspect-[3/4] w-full overflow-hidden bg-zinc-900 mb-8 mt-0">
                   <Image
                     src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2600&auto=format&fit=crop"
@@ -209,7 +224,7 @@ export default function Home() {
 
           <div className="overflow-hidden md:mt-32 py-2 px-1">
             <motion.div variants={itemVariants}>
-              <Link href="/works/invisible" className="group block mb-12 md:mb-0">
+              <Link href="/work/invisible" className="group block mb-12 md:mb-0">
                 <div className="relative aspect-[4/5] md:aspect-[3/4] w-full overflow-hidden bg-zinc-900 mb-8">
                   <Image
                     src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2664&auto=format&fit=crop"
@@ -227,7 +242,7 @@ export default function Home() {
 
           <div className="overflow-hidden py-2 px-1">
             <motion.div variants={itemVariants}>
-              <Link href="/works/vosk" className="group block mb-12 md:mb-0">
+              <Link href="/work/vosk" className="group block mb-12 md:mb-0">
                 <div className="relative aspect-[4/5] md:aspect-[3/4] w-full overflow-hidden bg-zinc-900 mb-8">
                   <Image
                     src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?q=80&w=2664&auto=format&fit=crop"
@@ -245,7 +260,7 @@ export default function Home() {
 
           <div className="overflow-hidden md:mt-32 py-2 px-1">
             <motion.div variants={itemVariants}>
-              <Link href="/works/havencraft" className="group block mb-12 md:mb-0">
+              <Link href="/work/havencraft" className="group block mb-12 md:mb-0">
                 <div className="relative aspect-[4/5] md:aspect-[3/4] w-full overflow-hidden bg-zinc-900 mb-8">
                   <Image
                     src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2664&auto=format&fit=crop"
@@ -270,7 +285,7 @@ export default function Home() {
             transition={{ duration: 0.5, ease: appyEase }}
             className="inline-block"
           >
-            <Link href="/works" className="px-10 py-5 rounded-full border border-zinc-600 text-xl font-medium hover:bg-white hover:text-black transition-colors duration-300 inline-block">
+            <Link href="/work" className="px-10 py-5 rounded-full border border-zinc-600 text-xl font-medium hover:bg-white hover:text-black transition-colors duration-300 inline-block">
               View all work
             </Link>
           </motion.div>
