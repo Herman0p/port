@@ -297,16 +297,25 @@ export default function Culture() {
             </section>
 
             {/* 6. Backers & Clients Marquee/Grid */}
-            <section className="px-6 md:px-16 lg:px-24 py-24 md:py-32 border-t border-zinc-800 overflow-hidden">
-                <h2 className="text-2xl md:text-3xl font-light text-zinc-500 mb-16 text-center">
-                    Backed by Infinity. Select clients:
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 opacity-60 hover:opacity-100 transition-opacity duration-500">
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
-                        <div key={num} className="aspect-video bg-zinc-900 border border-zinc-800 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
-                            <span className="text-zinc-700 font-mono text-xl">{num.toString().padStart(2, '0')}</span>
-                        </div>
-                    ))}
+            <section className="py-24 md:py-32 border-t border-zinc-800 overflow-hidden">
+                <div className="px-6 md:px-16 lg:px-24 mb-16 md:mb-24">
+                    <h2 className="text-2xl md:text-3xl font-light text-zinc-500 text-center">
+                        Backed by Infinity. Select clients:
+                    </h2>
+                </div>
+                <div className="flex whitespace-nowrap items-center py-12">
+                    <motion.div
+                        className="flex whitespace-nowrap items-center"
+                        animate={{ x: ["0%", "-50%"] }}
+                        transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+                    >
+                        <h2 className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-tighter text-zinc-300 pr-8">
+                            NIKE ✦ VERCEL ✦ STRIPE ✦ GOOGLE ✦ FRAMER ✦ FIGMA ✦
+                        </h2>
+                        <h2 className="text-6xl md:text-8xl lg:text-[9rem] font-bold tracking-tighter text-zinc-300 pr-8">
+                            NIKE ✦ VERCEL ✦ STRIPE ✦ GOOGLE ✦ FRAMER ✦ FIGMA ✦
+                        </h2>
+                    </motion.div>
                 </div>
             </section>
 
