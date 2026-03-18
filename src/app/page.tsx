@@ -25,7 +25,7 @@ const itemVariants = {
 };
 
 export default function Home() {
-  const heroWords = "Hermansyah.AP".split(" ");
+  const heroWords = "Solving Problems by Design".split(" ");
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
@@ -53,7 +53,7 @@ export default function Home() {
             animate={{ y: "0%" }}
             transition={{ duration: 0.5, delay: 0.1, ease: appyEase }}
           >
-            Frontend Developer & UI Designer
+            Frontend engineering and intuitive UI that drive real business results.
           </motion.h2>
         </div>
 
